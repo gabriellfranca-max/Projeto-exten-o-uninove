@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefas do Aluno</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<h1>Minhas Tarefas</h1>
+
+<table border="1">
+    <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Entrega</th>
+    </tr>
+
+    <tr th:each="t : ${listaTarefas}">
+        <td th:text="${t.titulo}"></td>
+        <td th:text="${t.descricao}"></td>
+        <td th:text="${t.dataEntrega}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<h2>Bem-vindo!</h2>
+
+<p th:if="${#authentication.principal.authorities[0].authority == 'ROLE_PROFESSOR'}">
+    Você é um <strong>PROFESSOR</strong>.
+</p>
+
+<p th:if="${#authentication.principal.authorities[0].authority == 'ROLE_ALUNO'}">
+    Você é um <strong>ALUNO</strong>.
+</p>
+
+<hr>
+
+<h3>Menu</h3>
+
+<div th:if="${#authentication.principal.authorities[0].authority == 'ROLE_PROFESSOR'}">
+    <a href="/professor/tarefas">Gerenciar Tarefas</a><br>
+</div>
+
+<div th:if="${#authentication.principal.authorities[0].authority == 'ROLE_ALUNO'}">
+    <a href="/aluno/tarefas">Minhas Tarefas</a><br>
+</div>
+
+<br>
+<a href="/logout">Sair</a>
+
+</body>
+</html>
