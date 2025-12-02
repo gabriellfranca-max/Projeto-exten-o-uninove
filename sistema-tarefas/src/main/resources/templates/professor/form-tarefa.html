@@ -4,27 +4,47 @@
     <meta charset="UTF-8">
     <title>Nova Tarefa</title>
     <link rel="stylesheet" href="/css/style.css">
-
+    
 </head>
 <body>
 
-<h1>Criar / Editar Tarefa</h1>
+<div class="container">
+    <h1 th:text="${tarefa.id != null} ? 'Editar Tarefa' : 'Criar Tarefa'"></h1>
 
-<form action="/professor/tarefas/salvar" method="post" th:object="${tarefa}">
-    
-    <input type="hidden" th:field="*{id}" />
-
-    <label>Título:</label><br>
-    <input type="text" th:field="*{titulo}" required><br><br>
-
-    <label>Descrição:</label><br>
-    <textarea th:field="*{descricao}" required></textarea><br><br>
-
-    <label>Data de Entrega:</label><br>
-    <input type="date" th:field="*{dataEntrega}" required><br><br>
-
-    <button type="submit">Salvar</button>
-</form>
+    <form th:action="@{/professor/tarefas/salvar}" method="post" th:object="${tarefa}">
+        
+        <input type="hidden" th:field="*{id}" />
+        
+        <div>
+            <label>Título:</label>
+            <input type="text" th:field="*{titulo}" required 
+                   th:class="${#fields.hasErrors('titulo')} ? 'error'">
+            <span th:if="${#fields.hasErrors('titulo')}" 
+                  th:errors="*{titulo}" class="error-message"></span>
+        </div>
+        
+        <br>
+        
+        <div>
+            <label>Descrição:</label>
+            <textarea th:field="*{descricao}" rows="4" required></textarea>
+        </div>
+        
+        <br>
+        
+        <div>
+            <label>Data de Entrega:</label>
+            <input type="date" th:field="*{dataEntrega}" required>
+        </div>
+        
+        <br>
+        
+        <button type="submit" class="btn-primary">Salvar</button>
+        <a th:href="@{/professor/tarefas}">
+            <button type="button" class="btn">Cancelar</button>
+        </a>
+    </form>
+</div>
 
 </body>
 </html>

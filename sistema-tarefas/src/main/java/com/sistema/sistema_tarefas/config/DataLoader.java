@@ -22,7 +22,7 @@ public class DataLoader {
                 prof.setNome("Professor Inicial");
                 prof.setEmail(profEmail);
                 prof.setSenha(enc.encode("1234")); // senha: 1234
-                prof.setTipo("PROFESSOR");
+                prof.setTipo("professor");
                 usuarioRepository.save(prof);
                 System.out.println("<<< Usuario professor criado: " + profEmail + " / 1234 >>>");
             } else {
@@ -36,7 +36,7 @@ public class DataLoader {
                 aluno.setNome("Aluno Inicial");
                 aluno.setEmail(alunoEmail);
                 aluno.setSenha(enc.encode("1234")); // senha: 1234
-                aluno.setTipo("ALUNO");
+                aluno.setTipo("aluno");
                 usuarioRepository.save(aluno);
                 System.out.println("<<< Usuario aluno criado: " + alunoEmail + " / 1234 >>>");
             } else {

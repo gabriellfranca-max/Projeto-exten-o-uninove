@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // ← NOVO FORMATO NO SPRING SECURITY 6
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .requestMatchers("/login", "/css/**", "/js/**", "/images/**", "/usuario/cadastro").permitAll()
                 .requestMatchers("/professor/**").hasRole("PROFESSOR")
                 .requestMatchers("/aluno/**").hasRole("ALUNO")
                 .anyRequest().authenticated()

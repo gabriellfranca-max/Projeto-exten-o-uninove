@@ -5,6 +5,7 @@ import com.sistema.sistema_tarefas.service.TarefaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/professor/tarefas")
@@ -30,32 +31,37 @@ public class ProfessorController {
         return "professor/form-tarefa";
     }
 
-    // SALVAR
+    // SALVAR (CORRIGIDO)
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Tarefa tarefa) {
-        tarefaService.salvar(tarefa);
-        return "redirect:/professor/tarefas";
+        try {
+            tarefaService.salvar(tarefa);
+            return "redirect:/professor/tarefas";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/professor/tarefas/nova?error=true";
+        }
     }
 
     // EDITAR
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
-        model.addAttribute("tarefa", tarefaService.buscarPorId(id));
+        Tarefa tarefa = tarefaService.buscarPorId(id);
+        if (tarefa == null) {
+            return "redirect:/professor/tarefas";
+        }
+        model.addAttribute("tarefa", tarefa);
         return "professor/form-tarefa";
     }
 
     // EXCLUIR
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable Long id) {
-        tarefaService.excluir(id);
+        try {
+            tarefaService.excluir(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "redirect:/professor/tarefas";
     }
-
-    
-@GetMapping("/ping")
-@ResponseBody
-public String ping() {
-    return "OK - Controller carregado!";
-}
-
 }

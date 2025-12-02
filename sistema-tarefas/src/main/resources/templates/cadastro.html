@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+<div class="container">
     <h1>Cadastro de Usuário</h1>
     
-    <form th:action="@{/cadastro}" th:object="${usuario}" method="post">
+    <form th:action="@{/usuario/cadastro}" th:object="${usuario}" method="post">
         <label>Nome:</label>
         <input type="text" th:field="*{nome}" required /><br><br>
 
@@ -18,13 +21,20 @@
 
         <label>Tipo:</label>
         <select th:field="*{tipo}" required>
+            <option value="">Selecione...</option>
             <option value="professor">Professor</option>
             <option value="aluno">Aluno</option>
         </select><br><br>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" class="btn-primary">Cadastrar</button>
+        
+        <a th:href="@{/login}">
+            <button type="button" class="btn">Voltar para Login</button>
+        </a>
     </form>
     
-    <p th:text="${mensagem}"></p>
+    <p th:if="${mensagem}" th:text="${mensagem}" style="color: red; text-align: center; margin-top: 20px;"></p>
+</div>
+
 </body>
 </html>
