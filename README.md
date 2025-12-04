@@ -151,12 +151,6 @@ O sistema utiliza:
 
 ---
 
-## 🎥 Vídeo Explicativo (opcional para +4 pontos)
-
-Inclua aqui o link do vídeo quando estiver pronto.
-
----
-
 ## 📄 Autores
 
 * Erick Adriano de Oliveira Silva – RA: 3025107900
