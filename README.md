@@ -50,7 +50,6 @@ Certifique‑se de ter instalado:
 * **Maven** → [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 * **MySQL 8** → [https://dev.mysql.com/downloads/](https://dev.mysql.com/downloads/)
 * (Opcional) **MySQL Workbench**
-* **VS Code ou IntelliJ**
 
 ---
 
