@@ -10,7 +10,12 @@
 
 <h1>Gerenciar Tarefas</h1>
 
-<a href="/professor/tarefas/nova">Criar Nova Tarefa</a>
+<button onclick="history.back()">Voltar</button><br><br>
+
+
+<a href="/professor/tarefas/nova">
+    <button>Criar Nova Tarefa</button>
+</a>
 
 <table border="1">
     <tr>
@@ -25,8 +30,8 @@
         <td th:text="${t.titulo}"></td>
         <td th:text="${t.dataEntrega}"></td>
         <td>
-            <a th:href="@{'/professor/tarefas/editar/' + ${t.id}}">Editar</a>
-            <a th:href="@{'/professor/tarefas/excluir/' + ${t.id}}">Excluir</a>
+            <a th:href="@{'/professor/tarefas/editar/' + ${t.id}}"><button>Editar</button></a>
+            <a th:href="@{'/professor/tarefas/excluir/' + ${t.id}}"><button>Excluir</button></a>
         </td>
     </tr>
 

@@ -19,6 +19,14 @@
         <input type="password" name="password" required /><br/><br/>
 
         <button type="submit" class="btn-primary">Entrar</button>
+
+        <div class="alert alert-danger" th:if="${param.error}">
+            Usuário ou senha inválidos!
+        </div>
+
+        <div class="alert alert-success" th:if="${param.logout}">
+            Você saiu do sistema.
+        </div>
     </form>
 
     <div style="margin-top: 20px; text-align: center;">

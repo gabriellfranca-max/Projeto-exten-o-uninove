@@ -23,15 +23,21 @@
 <h3>Menu</h3>
 
 <div th:if="${#authentication.principal.authorities[0].authority == 'ROLE_PROFESSOR'}">
-    <a href="/professor/tarefas">Gerenciar Tarefas</a><br>
+    <a href="/professor/tarefas">
+        <button>Gerenciar Tarefas</button>
+    </a><br>
 </div>
 
 <div th:if="${#authentication.principal.authorities[0].authority == 'ROLE_ALUNO'}">
-    <a href="/aluno/tarefas">Minhas Tarefas</a><br>
+    <a href="/aluno/tarefas">
+        <button>Minhas Tarefas</button>
+    </a><br>
 </div>
 
 <br>
-<a href="/logout">Sair</a>
+<a href="/logout">
+    <button>Sair</button>
+</a>
 
 </body>
 </html>
