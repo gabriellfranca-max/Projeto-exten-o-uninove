@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato — Carvalima</title>
+    <meta name="description" content="Entre em contato com o Restaurante Carvalima. Faça reservas, solicite orçamentos e encontre nossa localização.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Carva<span>lima</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="cardapio.html">Cardápio</a></li>
+            <li><a href="contato.html" class="ativo">Contato</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>Fale Conosco</h1>
+    <p>Reservas, orçamentos ou apenas dúvidas — estamos aqui para atender</p>
+</section>
+
+<!-- CONTATO PRINCIPAL -->
+<section style="background: var(--cor-fundo);">
+    <div class="contato-grid">
+
+        <!-- INFORMAÇÕES -->
+        <div class="contato-info">
+            <h3>Informações de Contato</h3>
+
+            <div class="info-item">
+                <div class="icone">📞</div>
+                <p>
+                    <strong>Telefone / WhatsApp</strong>
+                    (11) 9 8765-4321
+                </p>
+            </div>
+
+            <div class="info-item">
+                <div class="icone">✉️</div>
+                <p>
+                    <strong>E-mail</strong>
+                    contato@carvalima.com.br
+                </p>
+            </div>
+
+            <div class="info-item">
+                <div class="icone">📍</div>
+                <p>
+                    <strong>Endereço</strong>
+                    Rua das Flores, 420 — Bairro Jardim Paulistano<br>
+                    São Paulo — SP, CEP 01310-000
+                </p>
+            </div>
+
+            <div class="info-item">
+                <div class="icone">🕐</div>
+                <p>
+                    <strong>Horário de Funcionamento</strong>
+                    Segunda a Sexta: 11h00 – 23h00<br>
+                    Sábado e Domingo: 11h00 – 00h00
+                </p>
+            </div>
+
+            <div class="info-item">
+                <div class="icone">🛵</div>
+                <p>
+                    <strong>Delivery</strong>
+                    Todos os dias — das 11h às 22h<br>
+                    Pedido mínimo: R$ 50,00 | Raio: 10 km
+                </p>
+            </div>
+
+            <!-- MAPA PLACEHOLDER -->
+            <div class="mapa-container" style="margin-top: 24px;">
+                <span>📍</span>
+                <p>Rua das Flores, 420<br>São Paulo — SP</p>
+                <small style="font-size: 0.8rem; color: #aaa;">Integre aqui com Google Maps</small>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div>
+            <h3 style="font-family: var(--fonte-titulo); font-size: 1.4rem; color: var(--cor-primaria); margin-bottom: 20px;">
+                Envie uma Mensagem
+            </h3>
+
+            <form class="form-contato" id="formContato" novalidate>
+                <div class="form-grupo">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 9 0000-0000">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="assunto">Assunto *</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="">Selecione o assunto…</option>
+                        <option value="reserva">Reserva de Mesa</option>
+                        <option value="evento">Orçamento para Evento</option>
+                        <option value="catering">Catering</option>
+                        <option value="delivery">Informações de Delivery</option>
+                        <option value="elogio">Elogio</option>
+                        <option value="reclamacao">Reclamação / Sugestão</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-grupo" id="grupoData" style="display:none;">
+                    <label for="dataEvento">Data do Evento / Reserva</label>
+                    <input type="date" id="dataEvento" name="dataEvento">
+                </div>
+
+                <div class="form-grupo" id="grupoPessoas" style="display:none;">
+                    <label for="numeroPessoas">Número de Pessoas</label>
+                    <input type="number" id="numeroPessoas" name="numeroPessoas" min="1" max="300" placeholder="Ex: 20">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="mensagem">Mensagem *</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Descreva sua solicitação em detalhes…" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primario" style="width: 100%; margin-top: 6px;">
+                    Enviar Mensagem ✉
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- PERGUNTAS FREQUENTES -->
+<section style="background: var(--cor-branco);">
+    <div class="section-titulo">
+        <h2>Perguntas Frequentes</h2>
+        <p>Dúvidas comuns dos nossos clientes.</p>
+        <div class="divisor"></div>
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto;" id="faqContainer">
+
+        <details class="faq-item" style="margin-bottom: 14px; background: var(--cor-fundo); border-radius: 8px; padding: 16px 20px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--cor-primaria); list-style: none; display: flex; justify-content: space-between;">
+                Preciso fazer reserva com antecedência?
+                <span>+</span>
+            </summary>
+            <p style="margin-top: 12px; color: #555; font-size: 0.95rem;">Para almoços e jantares no salão principal, a reserva não é obrigatória, mas recomendada nos finais de semana. Para eventos privados e grupos acima de 15 pessoas, a reserva com pelo menos 48h de antecedência é necessária.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 14px; background: var(--cor-fundo); border-radius: 8px; padding: 16px 20px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--cor-primaria); list-style: none; display: flex; justify-content: space-between;">
+                Quais formas de pagamento são aceitas?
+                <span>+</span>
+            </summary>
+            <p style="margin-top: 12px; color: #555; font-size: 0.95rem;">Aceitamos dinheiro, débito, crédito (Visa, Master, Elo, Amex), Pix e vale-refeição (VR, Alelo, Sodexo). Para eventos, trabalhamos com boleto bancário.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 14px; background: var(--cor-fundo); border-radius: 8px; padding: 16px 20px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--cor-primaria); list-style: none; display: flex; justify-content: space-between;">
+                Vocês têm opções para restrições alimentares?
+                <span>+</span>
+            </summary>
+            <p style="margin-top: 12px; color: #555; font-size: 0.95rem;">Sim! Temos opções sem glúten, sem lactose e vegetarianas. Informe ao garçom ou mencione na reserva e faremos o possível para atender. Clientes com alergias graves devem contatar-nos antecipadamente.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 14px; background: var(--cor-fundo); border-radius: 8px; padding: 16px 20px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--cor-primaria); list-style: none; display: flex; justify-content: space-between;">
+                Como funciona o delivery?
+                <span>+</span>
+            </summary>
+            <p style="margin-top: 12px; color: #555; font-size: 0.95rem;">Realizamos entregas em raio de até 10 km. O pedido mínimo é de R$ 50,00. Pedidos até 22h. Tempo médio de entrega: 40–60 minutos. Entre em contato via WhatsApp para realizar seu pedido.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 14px; background: var(--cor-fundo); border-radius: 8px; padding: 16px 20px; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--cor-primaria); list-style: none; display: flex; justify-content: space-between;">
+                O Carvalima tem estacionamento?
+                <span>+</span>
+            </summary>
+            <p style="margin-top: 12px; color: #555; font-size: 0.95rem;">Sim! Dispomos de estacionamento próprio e gratuito para clientes, com capacidade para 30 veículos. Em datas comemorativas, utilizamos estacionamento parceiro na rua do lado.</p>
+        </details>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-marca">
+            <div class="logo">Carva<span>lima</span></div>
+            <p>Restaurante Carvalima — Sabor e tradição brasileira desde 2010. Venha nos visitar e descobrir por que somos referência em churrasco artesanal.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <ul>
+                <li><a href="tel:+551198765432">📞 (11) 9 8765-4321</a></li>
+                <li><a href="mailto:contato@carvalima.com.br">✉ contato@carvalima.com.br</a></li>
+                <li>📍 Rua das Flores, 420 — SP</li>
+                <li>🕐 Seg–Sex: 11h–23h</li>
+                <li>🕐 Sáb–Dom: 11h–00h</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Carvalima. Todos os direitos reservados. — Projeto de Extensão UNINOVE</p>
+    </div>
+</footer>
+
+<!-- NOTIFICAÇÃO -->
+<div class="notificacao" id="notificacao"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

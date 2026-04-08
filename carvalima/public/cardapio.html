@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio — Carvalima</title>
+    <meta name="description" content="Cardápio completo do Restaurante Carvalima: carnes, acompanhamentos, bebidas e sobremesas.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .categoria-titulo {
+            font-family: var(--fonte-titulo);
+            font-size: 1.6rem;
+            color: var(--cor-primaria);
+            text-align: center;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cor-destaque);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cardapio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 900px) { .cardapio-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 580px) { .cardapio-grid { grid-template-columns: 1fr; } }
+
+        .item-cardapio-h {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            border-radius: var(--borda-radius);
+            padding: 16px;
+            box-shadow: var(--sombra);
+            transition: transform var(--transicao);
+        }
+
+        .item-cardapio-h:hover { transform: translateY(-3px); }
+
+        .item-emoji {
+            font-size: 2.2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .item-dados h4 {
+            font-family: var(--fonte-titulo);
+            color: var(--cor-primaria);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .item-dados p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .item-dados .preco {
+            font-weight: 700;
+            color: var(--cor-destaque);
+            font-size: 1rem;
+        }
+
+        .filtro-tabs {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            padding: 10px 24px;
+            border: 2px solid var(--cor-primaria);
+            background: transparent;
+            color: var(--cor-primaria);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transicao);
+        }
+
+        .tab-btn.ativo,
+        .tab-btn:hover {
+            background: var(--cor-primaria);
+            color: white;
+        }
+
+        .secao-cardapio { display: none; }
+        .secao-cardapio.visivel { display: block; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Carva<span>lima</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="cardapio.html" class="ativo">Cardápio</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>Nosso Cardápio</h1>
+    <p>Carnes nobres, acompanhamentos frescos e sobremesas irresistíveis</p>
+</section>
+
+<!-- FILTRO -->
+<section style="background: var(--cor-fundo); padding: 40px 20px 0;">
+    <div class="filtro-tabs" id="filtroTabs">
+        <button class="tab-btn ativo" data-secao="carnes">🥩 Carnes</button>
+        <button class="tab-btn" data-secao="aves">🍗 Aves</button>
+        <button class="tab-btn" data-secao="acompanhamentos">🌽 Acompanhamentos</button>
+        <button class="tab-btn" data-secao="bebidas">🥤 Bebidas</button>
+        <button class="tab-btn" data-secao="sobremesas">🍮 Sobremesas</button>
+    </div>
+</section>
+
+<!-- CARNES -->
+<section style="background: var(--cor-fundo); padding: 20px 20px 60px;" id="secao-carnes" class="secao-cardapio visivel">
+    <div class="categoria-titulo">🥩 Carnes Nobres</div>
+    <div class="cardapio-grid">
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥩</div>
+            <div class="item-dados">
+                <h4>Picanha Brangus</h4>
+                <p>Temperada com sal grosso e limão siciliano (400g)</p>
+                <span class="preco">R$ 89,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍖</div>
+            <div class="item-dados">
+                <h4>Costela Fogo de Chão</h4>
+                <p>Cozida lentamente por 8h na brasa (600g)</p>
+                <span class="preco">R$ 79,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥩</div>
+            <div class="item-dados">
+                <h4>Ancho na Brasa</h4>
+                <p>Corte argentino maciez e suculência incomparáveis (350g)</p>
+                <span class="preco">R$ 95,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍖</div>
+            <div class="item-dados">
+                <h4>Maminha ao Alho</h4>
+                <p>Marinada com alho e ervas frescas (350g)</p>
+                <span class="preco">R$ 62,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥩</div>
+            <div class="item-dados">
+                <h4>Fraldinha Temperada</h4>
+                <p>Temperada na hora com especiarias da casa (300g)</p>
+                <span class="preco">R$ 57,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍖</div>
+            <div class="item-dados">
+                <h4>Assado de Tira</h4>
+                <p>Clássico gaúcho com osso e gordura certinha (400g)</p>
+                <span class="preco">R$ 69,90</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AVES -->
+<section style="background: var(--cor-fundo); padding: 20px 20px 60px;" id="secao-aves" class="secao-cardapio">
+    <div class="categoria-titulo">🍗 Aves</div>
+    <div class="cardapio-grid">
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍗</div>
+            <div class="item-dados">
+                <h4>Frango Caipira Inteiro</h4>
+                <p>Assado na brasa com ervas finas (inteiro ~1,2 kg)</p>
+                <span class="preco">R$ 58,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍗</div>
+            <div class="item-dados">
+                <h4>Coxa e Sobrecoxa</h4>
+                <p>Temperadas com chimichurri artesanal (400g)</p>
+                <span class="preco">R$ 38,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🦃</div>
+            <div class="item-dados">
+                <h4>Filé de Frango Grelhado</h4>
+                <p>Saudável e saboroso com molho de limão (300g)</p>
+                <span class="preco">R$ 34,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍗</div>
+            <div class="item-dados">
+                <h4>Asa Crocante</h4>
+                <p>Marinada e grelhada até ficar douradinha (10 unid)</p>
+                <span class="preco">R$ 42,90</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACOMPANHAMENTOS -->
+<section style="background: var(--cor-fundo); padding: 20px 20px 60px;" id="secao-acompanhamentos" class="secao-cardapio">
+    <div class="categoria-titulo">🌽 Acompanhamentos</div>
+    <div class="cardapio-grid">
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🧀</div>
+            <div class="item-dados">
+                <h4>Queijo Coalho Grelhado</h4>
+                <p>No espeto com mel e orégano (2 unidades)</p>
+                <span class="preco">R$ 16,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥗</div>
+            <div class="item-dados">
+                <h4>Salada da Casa</h4>
+                <p>Mix de folhas, tomate, cebola e molho especial</p>
+                <span class="preco">R$ 18,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍞</div>
+            <div class="item-dados">
+                <h4>Pão de Alho Artesanal</h4>
+                <p>Com manteiga de alho e salsinha (6 fatias)</p>
+                <span class="preco">R$ 14,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🫘</div>
+            <div class="item-dados">
+                <h4>Feijão Tropeiro</h4>
+                <p>Feijão, bacon, linguiça e farinha de mandioca</p>
+                <span class="preco">R$ 19,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🌽</div>
+            <div class="item-dados">
+                <h4>Milho na Brasa</h4>
+                <p>Com manteiga temperada e páprica (unidade)</p>
+                <span class="preco">R$ 10,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥔</div>
+            <div class="item-dados">
+                <h4>Batata Assada</h4>
+                <p>Recheada com creme de cheddar e bacon</p>
+                <span class="preco">R$ 22,90</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BEBIDAS -->
+<section style="background: var(--cor-fundo); padding: 20px 20px 60px;" id="secao-bebidas" class="secao-cardapio">
+    <div class="categoria-titulo">🥤 Bebidas</div>
+    <div class="cardapio-grid">
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍹</div>
+            <div class="item-dados">
+                <h4>Caipirinha Tradicional</h4>
+                <p>Cachaça artesanal, limão e açúcar (400ml)</p>
+                <span class="preco">R$ 22,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍺</div>
+            <div class="item-dados">
+                <h4>Cerveja Artesanal</h4>
+                <p>Lager, IPA ou Stout — produção local (600ml)</p>
+                <span class="preco">R$ 19,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥤</div>
+            <div class="item-dados">
+                <h4>Suco Natural</h4>
+                <p>Laranja, maracujá, abacaxi ou goiaba (500ml)</p>
+                <span class="preco">R$ 14,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">💧</div>
+            <div class="item-dados">
+                <h4>Água com / sem gás</h4>
+                <p>Garrafa 500ml</p>
+                <span class="preco">R$ 6,00</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🥃</div>
+            <div class="item-dados">
+                <h4>Combo Família</h4>
+                <p>2 Cervejas + 2 Sucos + 1 Refrigerante 2L</p>
+                <span class="preco">R$ 54,90</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOBREMESAS -->
+<section style="background: var(--cor-fundo); padding: 20px 20px 60px;" id="secao-sobremesas" class="secao-cardapio">
+    <div class="categoria-titulo">🍮 Sobremesas</div>
+    <div class="cardapio-grid">
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍮</div>
+            <div class="item-dados">
+                <h4>Pudim de Leite</h4>
+                <p>Receita tradicional da avó com calda caramelizada</p>
+                <span class="preco">R$ 16,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍌</div>
+            <div class="item-dados">
+                <h4>Banana Caramelizada</h4>
+                <p>Na brasa com canela, mel e sorvete de creme</p>
+                <span class="preco">R$ 18,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍫</div>
+            <div class="item-dados">
+                <h4>Petit Gâteau</h4>
+                <p>Bolinho de chocolate quente com sorvete de baunilha</p>
+                <span class="preco">R$ 24,90</span>
+            </div>
+        </div>
+        <div class="item-cardapio-h">
+            <div class="item-emoji">🍰</div>
+            <div class="item-dados">
+                <h4>Fatia do Dia</h4>
+                <p>Pergunte ao garçom o bolo do dia feito pela Mariana</p>
+                <span class="preco">R$ 14,90</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-marca">
+            <div class="logo">Carva<span>lima</span></div>
+            <p>Restaurante Carvalima — Sabor e tradição brasileira desde 2010. Venha nos visitar e descobrir por que somos referência em churrasco artesanal.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <ul>
+                <li><a href="tel:+551198765432">📞 (11) 9 8765-4321</a></li>
+                <li><a href="mailto:contato@carvalima.com.br">✉ contato@carvalima.com.br</a></li>
+                <li>📍 Rua das Flores, 420 — SP</li>
+                <li>🕐 Seg–Sex: 11h–23h</li>
+                <li>🕐 Sáb–Dom: 11h–00h</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Carvalima. Todos os direitos reservados. — Projeto de Extensão UNINOVE</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
